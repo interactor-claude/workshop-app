@@ -1,0 +1,8 @@
+---
+name: "Workshop App"
+description: "A tiny web app used to exercise the full Build journey end to end."
+goal: "Ship a small static site via the autonomous fleet: repo linked, machines connected, first goal delivered."
+status: active
+start_date: null
+target_date: null
+---
