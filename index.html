@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hello, world — Workshop App</title>
+<style>
+  /* Design tokens. Kept here as custom properties so the next page in this
+     project reuses these values rather than inventing new ones. */
+  :root {
+    color-scheme: light dark;
+
+    /* Colour — light. Cool neutral paper and ink; one accent, used once. */
+    --paper:  #f6f7f9;
+    --ink:    #14181d;
+    --muted:  #4e5661;
+    --accent: #2f4b99;
+    --rule:   #dfe3e9;
+
+    /* Type */
+    --font-display: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+                    "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+                 "Liberation Mono", monospace;
+    --step--1: 0.8125rem;
+    --step-0:  1rem;
+    --step-1:  clamp(1.0625rem, 0.98rem + 0.42vw, 1.25rem);
+    --step-4:  clamp(2.5rem, 1.6rem + 4.5vw, 4.5rem);
+
+    /* Spacing — 4px base */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:  #12151a;
+      --ink:    #e8ebf0;
+      --muted:  #a2aab8;
+      --accent: #8fa9f0;
+      --rule:   #262c36;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: var(--space-12) var(--space-6);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: var(--step-0);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  main {
+    width: 100%;
+    max-width: 34rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 var(--space-6);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    color: var(--muted);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: var(--step-4);
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  /* The one accent in the page: a hairline rule tying the heading to the
+     supporting line. Decorative only — it carries no meaning on its own. */
+  .rule {
+    width: var(--space-8);
+    height: 2px;
+    margin: var(--space-6) 0;
+    border: 0;
+    background: var(--accent);
+  }
+
+  .lede {
+    margin: 0;
+    max-width: 30rem;
+    font-size: var(--step-1);
+    color: var(--muted);
+    text-wrap: pretty;
+  }
+
+  .entrance {
+    animation: rise 480ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(var(--space-2)); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .entrance { animation: none; }
+  }
+</style>
+</head>
+<body>
+  <main class="entrance">
+    <p class="eyebrow">workshop-app</p>
+    <h1>Hello, world</h1>
+    <hr class="rule">
+    <p class="lede">The first page of Workshop App — a small static site built to
+      run the whole delivery loop, from scope to merge.</p>
+  </main>
+</body>
+</html>
